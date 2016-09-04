@@ -1,0 +1,7 @@
+<div style="text-align:center;">
+  <div ng-class="{green: row.getProperty(col.field) == 'buy'}">
+    <div ng-class="{red: row.getProperty(col.field) == 'sell'}">
+      <div class="ngCellText">{{row.getProperty(col.field) | uppercase}}</div>
+    </div>
+  </div>
+</div>

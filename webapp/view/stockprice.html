@@ -1,0 +1,18 @@
+﻿<div class="row">
+  <div class="col-md-4 text-left">
+    <input type="text" class="form-control" ng-model="selected"
+           typeahead="stock as stock.symbol for stock in stocks | filter:$viewValue | limitTo:8"
+           typeahead-template-url="template/stockCompanyTemplate.html" />
+  </div>
+  <div class="col-md-8" style="padding:5px; color:#ffd800; font-weight:bold;">
+    S&P500 as of Year 2012, 2013 | data from Yahoo Finance
+  </div>
+</div>
+
+<div class="top-buffer-20"></div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="stockprice-grid-style" ng-grid="gridOptions"></div>
+  </div>
+</div>

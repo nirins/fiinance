@@ -1,0 +1,37 @@
+﻿<div class="row">
+  <div class="col-md-9">
+    <div id="riskreturn" class="risk_return"></div>
+  </div>
+  <div class="col-md-3">
+    <div class="row">
+      <div class="groupbox">
+        <div class="row">
+          <div class="col-md-12">
+            <h3>Year
+              <span class="year">
+                <a ng-click="ChangeYear(2012)" ng-class="year == 2012 ? 'year-big':''"> 2012 </a>
+                <a ng-click="ChangeYear(2013)" ng-class="year == 2013 ? 'year-big':''"> 2013 </a>
+              </span>
+            </h3>
+          </div>
+        </div>
+        <div class="top-buffer-20"></div>
+        <div class="row">
+          <div class="col-md-12">
+            <h3>Stocks <small>select more..</small></h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-left">
+            <select multiple chosen hidden-data="true" class="chzn-select"
+                    ng-model="selected_stocks"
+                    ng-options="s for s in stock_list"
+                    style="width: inherit;">
+              <option value=""></option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

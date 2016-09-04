@@ -1,0 +1,110 @@
+﻿<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+<!-- EF Runtime content -->
+<edmx:Runtime>
+<!-- SSDL content -->
+<edmx:StorageModels>
+<Schema Namespace="marketdbModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="marketdbModelStoreContainer">
+    <EntitySet Name="Stock" EntityType="marketdbModel.Store.Stock" store:Type="Tables" />
+    <EntitySet Name="StockPrice" EntityType="marketdbModel.Store.StockPrice" store:Type="Tables" />
+  </EntityContainer>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="symbol" />
+    </Key>
+    <Property Name="symbol" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="company_name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="sector" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="sub_industry" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="StockPrice">
+    <Key>
+      <PropertyRef Name="symbol" />
+      <PropertyRef Name="date" />
+    </Key>
+    <Property Name="symbol" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="open" Type="numeric" Nullable="false" Precision="19" Scale="5" />
+    <Property Name="high" Type="numeric" Nullable="false" Precision="19" Scale="5" />
+    <Property Name="low" Type="numeric" Nullable="false" Precision="19" Scale="5" />
+    <Property Name="close" Type="numeric" Nullable="false" Precision="19" Scale="5" />
+    <Property Name="volume" Type="numeric" Nullable="false" Precision="19" Scale="5" />
+    <Property Name="adjust_close" Type="numeric" Nullable="false" Precision="19" Scale="5" />
+  </EntityType>
+</Schema>
+</edmx:StorageModels>
+<!-- CSDL content -->
+<edmx:ConceptualModels>
+<Schema Namespace="marketdbModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="marketdbEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Stock" EntityType="marketdbModel.Stock" />
+    <EntitySet Name="StockPrice" EntityType="marketdbModel.StockPrice" />
+  </EntityContainer>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="symbol" />
+    </Key>
+    <Property Name="symbol" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="company_name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="sector" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="sub_industry" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="StockPrice">
+    <Key>
+      <PropertyRef Name="symbol" />
+      <PropertyRef Name="date" />
+    </Key>
+    <Property Name="symbol" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" />
+    <Property Name="open" Type="Decimal" Nullable="false" Precision="19" Scale="5" />
+    <Property Name="high" Type="Decimal" Nullable="false" Precision="19" Scale="5" />
+    <Property Name="low" Type="Decimal" Nullable="false" Precision="19" Scale="5" />
+    <Property Name="close" Type="Decimal" Nullable="false" Precision="19" Scale="5" />
+    <Property Name="volume" Type="Decimal" Nullable="false" Precision="19" Scale="5" />
+    <Property Name="adjust_close" Type="Decimal" Nullable="false" Precision="19" Scale="5" />
+  </EntityType>
+</Schema>
+</edmx:ConceptualModels>
+<!-- C-S mapping content -->
+<edmx:Mappings>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="marketdbModelStoreContainer" CdmEntityContainer="marketdbEntities">
+    <EntitySetMapping Name="Stock">
+      <EntityTypeMapping TypeName="marketdbModel.Stock">
+        <MappingFragment StoreEntitySet="Stock">
+          <ScalarProperty Name="symbol" ColumnName="symbol" />
+          <ScalarProperty Name="company_name" ColumnName="company_name" />
+          <ScalarProperty Name="sector" ColumnName="sector" />
+          <ScalarProperty Name="sub_industry" ColumnName="sub_industry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StockPrice">
+      <EntityTypeMapping TypeName="marketdbModel.StockPrice">
+        <MappingFragment StoreEntitySet="StockPrice">
+          <ScalarProperty Name="symbol" ColumnName="symbol" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="open" ColumnName="open" />
+          <ScalarProperty Name="high" ColumnName="high" />
+          <ScalarProperty Name="low" ColumnName="low" />
+          <ScalarProperty Name="close" ColumnName="close" />
+          <ScalarProperty Name="volume" ColumnName="volume" />
+          <ScalarProperty Name="adjust_close" ColumnName="adjust_close" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
+</edmx:Mappings>
+</edmx:Runtime>
+<!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+<edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+<Connection><DesignerInfoPropertySet><DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" /></DesignerInfoPropertySet></Connection>
+<edmx:Options><DesignerInfoPropertySet><DesignerProperty Name="ValidateOnBuild" Value="True" /><DesignerProperty Name="EnablePluralization" Value="False" /><DesignerProperty Name="IncludeForeignKeysInModel" Value="True" /><DesignerProperty Name="UseLegacyProvider" Value="False" /><DesignerProperty Name="CodeGenerationStrategy" Value="None" /></DesignerInfoPropertySet></edmx:Options>
+<edmx:Diagrams >
+      <Diagram DiagramId="848f892fadd447e5b08747081f7cc1b9" Name="Diagram1">
+        <EntityTypeShape EntityType="marketdbModel.Stock" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="marketdbModel.StockPrice" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+</edmx:Designer></edmx:Edmx>

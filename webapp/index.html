@@ -1,0 +1,87 @@
+﻿<!doctype html>
+<html ng-app="myApp">
+<head>
+  <title>F ii n a n c e</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="stylesheet" type="text/css" href="vendor/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="vendor/css/ng-grid.css" />
+  <link rel="stylesheet" type="text/css" href="vendor/css/chosen.css" />
+  <link rel="stylesheet" type="text/css" href="vendor/css/chosen-spinner.css" />
+
+  <script type="text/javascript" src="vendor/js/jquery-2.1.0.js"></script>
+  <script type="text/javascript" src="vendor/js/jquery.color-2.1.2.min.js"></script>
+  <script type="text/javascript" src="vendor/js/jquery.signalR-2.0.1.js"></script>
+  <script type="text/javascript" src="vendor/js/angular.js"></script>
+  <script type="text/javascript" src="vendor/js/angular-route.js"></script>
+  <script type="text/javascript" src="vendor/js/angular-sanitize.js"></script>
+  <script type="text/javascript" src="vendor/js/angular-cookies.js"></script>
+  <script type="text/javascript" src="vendor/js/angular-resource.min.js"></script>
+  <script type="text/javascript" src="vendor/js/ng-grid-2.0.7.min.js"></script>
+  <script type="text/javascript" src="vendor/js/chosen.jquery.js"></script>
+  <script type="text/javascript" src="vendor/js/chosen.js"></script>
+  <script type="text/javascript" src="vendor/js/hmac-sha256.js"></script>
+  <script type="text/javascript" src="vendor/js/ui-bootstrap-tpls-0.10.0.min.js"></script>
+  <script type="text/javascript" src="vendor/js/jquery-ui.js"></script>
+  <script type="text/javascript" src="vendor/js/d3.v3.min.js"></script>
+
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+    google.load('visualization', '1', { packages: ['corechart', 'treemap'] });
+  </script>
+
+  <link rel="stylesheet" type="text/css" href="style.css" />
+
+  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="config.js"></script>
+  <script type="text/javascript" src="factory/stockTickerData.js"></script>
+  <script type="text/javascript" src="controller/stockpriceController.js"></script>
+  <script type="text/javascript" src="controller/treemapController.js"></script>
+  <script type="text/javascript" src="controller/riskreturnController.js"></script>
+  <script type="text/javascript" src="controller/realtimeController.js"></script>
+</head>
+<body ng-controller="mainController">
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-hide="navHide">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">F ii n a n c e</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li ng-class="getClass('/stockprice')">
+            <a href="#stockprice"><span class="glyphicon glyphicon-dashboard"></span>Stock Price</a>
+          </li>
+          <!--<li ng-class="getClass('/trade')">
+            <a href="#trade"><span class="glyphicon glyphicon-usd"></span>Real-Time</a>
+          </li>-->
+          <li ng-class="getClass('/treemap')">
+            <a href="#treemap"><span class="glyphicon glyphicon-th-large"></span>Tree Map</a>
+          </li>
+          <li ng-class="getClass('/riskreturn')">
+            <a href="#riskreturn"><span class="glyphicon glyphicon-glass"></span>Risk-Return</a>
+          </li>
+          <li ng-class="getClass('/realtime')">
+            <a href="#realtime"><span class="glyphicon glyphicon-fire"></span>Real-Time</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div>
+      <!-- MAIN CONTENT AND INJECTED VIEWS -->
+      <div id="main" class="main">
+        <div ng-view></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
